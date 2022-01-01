@@ -1,0 +1,672 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Network Properties</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="de74fe4b-731a-47df-8668-3f2e9eefa793" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📑</span></div><h1 class="page-title">Network Properties</h1></header><div class="page-body"><p id="101bfd16-ffd9-4268-baf0-72eca57f3022" class="">Network properties are governance-curated, global, on-chain variables used to control various behaviours of the KIRA  blockchain application. Values of all network properties can be found <a href="https://github.com/KiraCore/sekai/blob/20d8e7b4c02fe2b419e53de011b09b213035dfb7/proto/kira/gov/network_properties.proto#L15">here</a>.</p><p id="2451b144-490e-411a-903d-806033a1b988" class="">To modify network properties a <code>PermCreateSetNetworkPropertyProposal (12)</code> and <code>PermVoteSetNetworkPropertyProposal (13)</code> are required to vote on and create properties modification proposal.</p><table id="35827f3a-a2f5-436a-8f31-0b85aa9cc2cf" class="simple-table"><tbody><tr id="3741147f-33b0-48b6-af86-50336c6d166b"><td id="^dDr"><strong>NAME</strong></td><td id="yQi["><strong>DEFAULT</strong></td><td id="`daK"><strong>UNIT</strong></td><td id="pI?S"><strong>DESCRIPTION</strong></td></tr><tr id="7e1e12e5-85f3-4b7b-a065-4149058eb66f"><td id="^dDr">MinTxFee</td><td id="yQi[">100</td><td id="`daK"><code>ukex</code></td><td id="pI?S">Minimum transaction fee that must be sent in order to submit any on-chain message. Global transaction spam protection measure.</td></tr><tr id="b980af1d-e381-4cea-a2a8-e7982f971935"><td id="^dDr">MaxTxFee</td><td id="yQi[">1000000</td><td id="`daK"><code>ukex</code></td><td id="pI?S">Maximum transaction fee that can be sent along any transaction type. Prevents potential loss of funds while specifying wrong transaction fee amount by the user.</td></tr><tr id="3f7aedde-c04d-423f-9437-11036716b374"><td id="^dDr">VoteQuorum</td><td id="yQi[">33</td><td id="`daK"><code>percentage, %</code></td><td id="pI?S">Required, minimum percentage of governance members with permission to vote on a given proposal to make said proposal valid. If minimum quorum is not reached then passing said proposal is not possible.</td></tr><tr id="34bfe6fb-112f-42ce-99ac-03c5a7a57459"><td id="^dDr">MinimumProposalEndTime</td><td id="yQi[">300</td><td id="`daK"><code>second</code></td><td id="pI?S">Minimum time that proposal MUST be active and default time for all proposals to remain pending. To modify duration time of individual proposal a proposal dime amendment can be raised by the governance as defined <a href="https://www.notion.so/868493592f0f4307986edfb5acd415de">here</a>.</td></tr><tr id="18bebff8-bbe4-4bd0-9a7d-25939a16ebd8"><td id="^dDr">ProposalEnactmentTime</td><td id="yQi[">300</td><td id="`daK"><code>second</code></td><td id="pI?S">Minimum time for the proposals to take effect after they passed</td></tr><tr id="c6294c2b-8084-440c-9f08-6b5cf446241a"><td id="^dDr">MinProposalEndBlocks</td><td id="yQi[">2</td><td id="`daK"><code>block</code></td><td id="pI?S">Minimum number of blocks during which the proposals MUST remain active. This is used to prevent edge cases where <code>MinimumProposalEndTime</code> is set to value shorter than a single block time, thus making it impossible to vote in time.</td></tr><tr id="2adb8022-6a70-4880-8acd-06b842d5ad1f"><td id="^dDr">MinProposalEnactmentBlocks</td><td id="yQi[">1</td><td id="`daK"><code>block</code></td><td id="pI?S">Minimum number of blocks that must pass after proposal passed for the proposal to take effect.</td></tr><tr id="cc243c30-5990-4026-9e7b-56895370bef3"><td id="^dDr">EnableForeignFeePayments</td><td id="yQi[">true</td><td id="`daK"><code>boolean</code></td><td id="pI?S">Allow transaction fee payments with tokens other then <code>KEX</code></td></tr><tr id="3d6523a6-3660-44c3-afb2-dc425f764da6"><td id="^dDr">MischanceRankDecreaseAmount</td><td id="yQi[">10</td><td id="`daK"><code>integer</code></td><td id="pI?S">When it&#x27;s certain that validator is offline and failed to participate in a block production, decrease its global rank by the specified value.</td></tr><tr id="2c9da785-7f86-401a-acc3-7d5946a856f5"><td id="^dDr">MischanceConfidence</td><td id="yQi[">10</td><td id="`daK"><code>integer</code></td><td id="pI?S">How many consecutive blocks must the validator miss for the network to be certain that the node is offline and not participating in the block signing</td></tr><tr id="e0d5f076-7f1a-4623-9af1-369205bb496b"><td id="^dDr">MaxMischance</td><td id="yQi[">110</td><td id="`daK"><code>integer</code></td><td id="pI?S">How many consecutive blocks must the validator miss for the network to change validator status to <code>inactive</code></td></tr><tr id="81bc0cb4-acf4-48ef-8c50-272440ef424b"><td id="^dDr">InactiveRankDecreasePercent</td><td id="yQi[">50</td><td id="`daK"><code>percentage, %</code></td><td id="pI?S">By what percentage should the validator global rank decrease when the said validator node status changes to <code>inactive</code> due to not participating in signing new blocks.</td></tr><tr id="ccb09003-5ca3-4d04-b0a6-b1fe2a51cb38"><td id="^dDr">PoorNetworkMaxBankSend</td><td id="yQi[">1000000</td><td id="`daK"><code>ukex</code></td><td id="pI?S">When <code>poor network conditions</code> occur, what is the maximum value that can be transferred between accounts.</td></tr><tr id="04f4e0e3-b46c-43bb-874b-7421fb3861d4"><td id="^dDr">MinValidators</td><td id="yQi[">1</td><td id="`daK"><code>integer</code></td><td id="pI?S">Minimum number of validators that must be active for the network to be considered healthy. If number of validators falls below this value then <code>poor network conditions</code> occur.</td></tr><tr id="f160c0e5-0eb6-417a-9487-70df42214115"><td id="^dDr">UnjailMaxTime</td><td id="yQi[">1209600</td><td id="`daK"><code>second</code></td><td id="pI?S">Maximum time governance has to unjail validator. If UnjailMaxTime passes then validator becomes permanently jailed (tombstoned).</td></tr><tr id="0ef2f1cb-11de-478d-91af-45ccab191496"><td id="^dDr">EnableTokenWhitelist</td><td id="yQi[">false</td><td id="`daK"><code>boolean</code></td><td id="pI?S">Enables whitelist of tokens transferable on the network</td></tr><tr id="f9114cde-086a-4a9f-9dc8-9290c9cec40d"><td id="^dDr">EnableTokenBlacklist</td><td id="yQi[">true</td><td id="`daK"><code>boolean</code></td><td id="pI?S">Enable blacklist of tokens transferable on the network</td></tr><tr id="c8073faa-7b26-4b76-9b76-4d0361b20f4e"><td id="^dDr">MinIdentityApprovalTip</td><td id="yQi[">200</td><td id="`daK"><code>ukex</code></td><td id="pI?S">Minimum tip amount that must be sent along <code>Identity Registrar</code> record verification request</td></tr><tr id="20300493-cbf1-47c6-9300-e140a78b92e5"><td id="^dDr">UniqueIdentityKeys</td><td id="yQi[">moniker,username</td><td id="`daK"><code>string</code></td><td id="pI?S">Key values that must remain unique in the <code>Identity Registrar</code></td></tr></tbody></table><h2 id="0013f813-f70d-4343-9539-56143f3eba4d" class="">Commands Examples</h2><p id="79b86741-1ddb-40fb-9ed6-fc081142f220" class=""><strong>Proposals Creation</strong></p><pre id="bba6b159-33a4-4243-8c5c-0ddef5a428bb" class="code"><code># CLI
+sekaid tx customgov proposal set-network-property &quot;${KEY^^}&quot; &quot;$VALUE&quot; \
+ --title=&quot;Upserting Network Property &#x27;$KEY&#x27;&quot; \
+ --description=&quot;Assign value &#x27;$VALUE&#x27; to property &#x27;$KEY&#x27;&quot; \
+ --from=$ACCOUNT --chain-id=$NETWORK_NAME --keyring-backend=test  --fees=100ukex --yes --log_format=json --broadcast-mode=async --output=json
+# KM
+# e.g: upsertNetworkProperty &lt;account&gt; &lt;property-name&gt; &lt;property-value&gt;
+setNetworkProperty validator &quot;MIN_TX_FEE&quot; 123</code></pre><p id="77999f20-c9a4-47b0-aa98-068aa74dfb73" class=""><strong>Query All Properties</strong></p><pre id="32888fd5-7de7-41da-b94c-31d9d8c90b68" class="code"><code># CLI
+sekaid query customgov network-properties --output=json --home=$SEKAID_HOME
+# INTERX
+curl &quot;&lt;ip&gt;:11000/api/kira/gov/network_properties&quot; | jq
+# KM
+showNetworkProperties
+
+# Example Output:
+{&quot;properties&quot;:{&quot;min_tx_fee&quot;:&quot;100&quot;,&quot;max_tx_fee&quot;:&quot;1000000&quot;,&quot;vote_quorum&quot;:&quot;33&quot;,&quot;default_proposal_end_time&quot;:&quot;360&quot;,&quot;minimum_proposal_end_time&quot;:&quot;300&quot;,&quot;proposal_enactment_time&quot;:&quot;300&quot;,&quot;min_proposal_end_blocks&quot;:&quot;2&quot;,&quot;min_proposal_enactment_blocks&quot;:&quot;1&quot;,&quot;enable_foreign_fee_payments&quot;:true,&quot;mischance_rank_decrease_amount&quot;:&quot;1&quot;,&quot;max_mischance&quot;:&quot;50&quot;,&quot;mischance_confidence&quot;:&quot;25&quot;,&quot;inactive_rank_decrease_percent&quot;:&quot;50&quot;,&quot;min_validators&quot;:&quot;1&quot;,&quot;poor_network_max_bank_send&quot;:&quot;1000000&quot;,&quot;jail_max_time&quot;:&quot;1209600&quot;,&quot;enable_token_whitelist&quot;:false,&quot;enable_token_blacklist&quot;:true,&quot;min_identity_approval_tip&quot;:&quot;200&quot;,&quot;unique_identity_keys&quot;:&quot;moniker,username&quot;}}</code></pre><p id="018c0c1b-e96e-47b2-ad07-9be5c9c7efd5" class="">
+</p></div></article></body></html>

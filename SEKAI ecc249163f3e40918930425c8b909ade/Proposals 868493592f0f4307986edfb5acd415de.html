@@ -1,0 +1,673 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Proposals</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="86849359-2f0f-4307-986e-dfb5acd415de" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🙋‍♂️</span></div><h1 class="page-title">Proposals</h1></header><div class="page-body"><p id="9378c26a-0a6b-477e-a206-930d15a45361" class="">Proposals are a governance process in which selected members of the KIRA Network can modify behaviour of the blockchain application and collectively make various off-chain decisions.</p><p id="dc9bd6a7-5ce6-4ed6-991d-d56095c59f10" class="">There exist two types of network actors who can take part in voting on governance proposals:</p><ul id="b108bdaf-6e54-4f19-9b6c-7b737fd2867c" class="bulleted-list"><li style="list-style-type:disc"><strong>Validators </strong>- users who claimed a validator seat and their nodes actively produce new blocks</li></ul><ul id="97001425-c0c1-4fc6-b133-43c450f19600" class="bulleted-list"><li style="list-style-type:disc"><strong>Councilors </strong>- users who are not validators but claimed a councilor seat thus acknowledged responsibility of governing the network</li></ul><p id="002066e5-9cf6-4583-882e-db1307dc3d99" class=""><strong>Validators &amp; Councilors together form a governance set</strong>. Being part of the governance set does NOT automatically allow for voting on every possible proposal type. Every governance member requires a specific permission assigned in order to have rights to vote on a specific type of proposal. When it comes to creating new proposals, the same rule applies - account is required to have a specific permission enabling it to submit a specific proposals. Permissions can be applied individually to accounts or via roles. More about roles &amp; permissions can be found <a href="Roles%20&amp;%20Permissions%20f91847b7c3c84738bae73a71044ef2fc.html">here</a>.</p><p id="d21a6efe-d264-4c55-97e1-3a8de128bd7b" class=""><strong>All governance set member are non-sibil</strong>, that means they are identifiable individuals and can NOT be the same person owning multiple kira accounts with different or same governance permissions. </p><p id="656fbabd-09d5-42d4-b5f2-92f8f6e0437e" class="">Non-sybil status of governance members is ensured by the governance set itself, this can be called a <strong>governance curated governance set</strong>. Although governance members do NOT have to be public or KYC&#x27;d they must be recognizable as individuals. There are many ways through which governance can ensure that new governance members are indeed individuals, for example by hosting a meeting in person or by having a group call / online meeting.</p><p id="65aa9144-1c32-4e52-85cf-78db0cedb25f" class=""><strong>Voting power of all governance members is always equal</strong>. Opposing to governance models where tokens define weight of the individuals vote, in KIRA regardless of the wealth status or token holdings all governance member share the exact same weight of vote. This is done to ensure that stolen tokens or accounts can NOT be used to circumvent expected network operation or otherwise sway governance votes. It is highly important in the case where centralized custodians such as exchanges hold large token positions of their users and thus are able to influence the operation of other networks.</p><p id="ae991f3c-c283-4cab-aeba-5e5f9824b12e" class="">Thanks to <a href="Roles%20&amp;%20Permissions%20f91847b7c3c84738bae73a71044ef2fc.html">roles &amp; permissions</a> model KIRA governance is almost infinitely scalable, allowing for creation of multiple governance sub-councils that can be codependent through <a href="https://en.wikipedia.org/wiki/Separation_of_powers#Checks_and_balances">checks and balances</a> or any other governance system. By efficient separation of responsibilities between many users KIRA governance is able to simultaneously manage various on-chain parameters, staking interest rates and more.</p><h2 id="9165cbce-6a55-41dc-8a33-339cf313a298" class="">Voting Rules</h2><p id="2811c46c-1f95-4846-a9c7-bcdb930e4f8e" class="">Proposals can be passed, rejected or vetoed by governance members with relevant voting permission and in accordance to the following rules:</p><ul id="ef7b7a63-99c4-48b5-90bd-457c39470872" class="bulleted-list"><li style="list-style-type:disc">Only those network actors who are <code>validators</code> or <code>councilors</code> can vote on proposals (Governance actors).</li></ul><ul id="7423ab40-8040-428b-baa6-22a47a404749" class="bulleted-list"><li style="list-style-type:disc">Governance actor can only vote on the specific proposal if he/she has assigned a specific <code>permissions</code> that allow this specific actor to vote on that specific proposal or if said actor has a <code>role</code> containing said <code>permission</code></li></ul><ul id="976d0809-d192-47ec-8d65-ec34b3a4648a" class="bulleted-list"><li style="list-style-type:disc">Governance actor can only vote on a proposal using only one of four distinct vote types: <code>yes (1)</code>, <code>abstain (2)</code> , <code>no (3)</code>  or <code>veto (4)</code></li></ul><ul id="f2acb319-74ef-498b-8552-8afb67b416cb" class="bulleted-list"><li style="list-style-type:disc">Network actors with different roles (or permissions) might have ability to cast only certain vote types (e.g. validators might be able to cast veto but other governance members not)</li></ul><ul id="fbd21f4c-e253-417f-8152-4885967e5aa5" class="bulleted-list"><li style="list-style-type:disc">Proposal is <strong>passed</strong> only if MORE then <code>1/2</code> (&gt;50%) of all votes were <code>yes</code> votes and quorum of MORE than <code>1/3</code> (&gt;33%) of all actors with permissions to vote on a specific proposal voted on said proposal</li></ul><ul id="83949510-ade5-4ef1-bbbb-0bcc296713bc" class="bulleted-list"><li style="list-style-type:disc">Proposal is <strong>rejected</strong> if votes of type different then <code>yes</code> sum to MORE or EQUAL to <code>1/2</code> (&gt;=50%) of all votes</li></ul><ul id="09361097-e0af-4f96-9adf-0d9b2a9d8185" class="bulleted-list"><li style="list-style-type:disc">Proposal is <strong>rejected</strong> if MORE or EQUAL to <code>1/2</code> (&gt;=50%) of actors who posses veto privileges vote <code>veto</code> (minority with veto power can reject a proposal)</li></ul><ul id="3f99ce40-4c0c-4d08-81e2-171252c3f3ea" class="bulleted-list"><li style="list-style-type:disc">Proposal can&#x27;t pass, be rejected or vetoed before its <code>expiration</code> time passes. Proposal can&#x27;t be enacted (take effect) sooner then after the <code>enactment</code> time passes.</li></ul><ul id="355b4cd5-202e-4a11-ba25-68c4802f3abe" class="bulleted-list"><li style="list-style-type:disc">During <code>enactment</code> time no votes can be casted. And proposal takes effect only after <code>enactment</code> period ends</li></ul><blockquote id="829d1339-623c-4457-b8eb-fc750eb5b1b1" class=""><em>NOTE: The minimum quorum percentage is configurable via </em><em><a href="Network%20Properties%20de74fe4b731a47df86683f2e9eefa793.html">network properties</a></em><em> and can be changed by governance. The recommended safe default is 33%</em></blockquote><h2 id="0f21a555-3884-4ad6-87ea-fb2b038195cd" class="">Vote Types (<a href="https://github.com/KiraCore/sekai/blob/6373f5748767ef2eb2adc9772686a4b8792214bc/proto/kira/gov/proposal.proto#L15">ref.</a>)</h2><table id="36158b92-a85a-4411-805c-155dd70b7982" class="simple-table"><tbody><tr id="c57c2263-485d-4c64-91d4-660a84c1741b"><td id="&lt;QFr"><strong>VOTE OPTION</strong></td><td id="xLiI"><strong>DESCRIPTION</strong></td></tr><tr id="2a089131-6832-47a8-9355-25ff9382dc24"><td id="&lt;QFr"><code>VOTE_OPTION_YES (1)</code></td><td id="xLiI">Councilor agrees with the proposals and wants it to pass successfully.</td></tr><tr id="3446df2a-d736-4bdb-91f6-702891de001e"><td id="&lt;QFr"><code>VOTE_OPTION_ABSTAIN (2)</code></td><td id="xLiI">Councilor has no strong opinion on the proposal, but wants to signify that he took note of the proposal and fulfilled his role as the member of the governance set.</td></tr><tr id="dc1741b5-9736-4edc-977a-728b5e6bb1e0"><td id="&lt;QFr"><code>VOTE_OPTION_NO (3)</code></td><td id="xLiI">Councilor disagrees with the proposal and wants to prevent it from passing successfully.</td></tr><tr id="0ff3b614-e8f7-4e28-bc63-8e9aa545e94d"><td id="&lt;QFr"><code>VOTE_OPTION_NO_WITH_VETO (4)</code></td><td id="xLiI">Councilor with minority right to reject (veto) a proposal disagrees with the proposal and wants to prevent it from passing successfully by all means necessary due to safety or other type of concern highly impacting network operations.</td></tr></tbody></table><h2 id="e4365fb9-26a4-4aba-b2ba-be5735155ca8" class="">Proposal Status Codes (<a href="https://github.com/KiraCore/sekai/blob/6373f5748767ef2eb2adc9772686a4b8792214bc/proto/kira/gov/proposal.proto#L30">ref.</a>)</h2><table id="3c4e7894-aa20-42cb-a98b-916f1f5bacf9" class="simple-table"><tbody><tr id="3d11064e-da05-47eb-84e9-eae86d62f627"><td id="xB:E"><strong>STATUS</strong></td><td id="wt`A"><strong>DESCRIPTION</strong></td></tr><tr id="10f7b578-dede-4753-b473-b7f5fec3dfeb"><td id="xB:E"><code>VOTE_RESULT_UNKNOWN (0)</code></td><td id="wt`A">Result of the proposal is not yet known/defined</td></tr><tr id="cd92a218-a7bd-41d4-b44b-2d5bfa1a3fb2"><td id="xB:E"><code>VOTE_RESULT_PASSED (1)</code></td><td id="wt`A">Proposal reached quorum, passed successfully, was enacted and took effect</td></tr><tr id="3fcb0bce-5aea-4ff2-84a1-a127db56c874"><td id="xB:E"><code>VOTE_RESULT_REJECTED (2)</code></td><td id="wt`A">Proposal reached quorum but did NOT pass by lacking minimum of <code>&gt;50%</code> yes votes</td></tr><tr id="07100f21-1fbd-47eb-97f4-035539a502d5"><td id="xB:E"><code>VOTE_RESULT_REJECTED_WITH_VETO  (3)</code></td><td id="wt`A">Proposal reached quorum but did NOT pass due to rejection of <code>&gt;50%</code> veto votes</td></tr><tr id="30bc3143-566f-4084-87f6-dc71f0c14d72"><td id="xB:E"><code>VOTE_PENDING (4)</code></td><td id="wt`A">Proposal is not finalized yet and is still awaiting votes</td></tr><tr id="23398aa1-57e4-4dda-8268-e09a6d630a02"><td id="xB:E"><code>VOTE_RESULT_QUORUM_NOT_REACHED (5)</code></td><td id="wt`A">Proposal failed to reach quorum and thus was rejected</td></tr><tr id="60b0288b-e169-4439-a03f-f682650ecd55"><td id="xB:E"><code>VOTE_RESULT_ENACTMENT (6)</code></td><td id="wt`A">Proposal was successful but is awaiting enactment time to be passed and thus enforced.</td></tr><tr id="a4865888-1d1a-46d3-9019-ae5cf94c9aa0"><td id="xB:E"><code>VOTE_RESULT_PASSED_WITH_EXEC_FAIL (7)</code></td><td id="wt`A">Execution of the proposal logic failed with unforeseen exception and no changes were made</td></tr></tbody></table><blockquote id="f1a0c2e2-d799-4eae-be4f-9ea5fe9ae5dd" class="">NOTE: Enactment time is used to ensure that network participants have time to analyze result of successful proposal and act accordingly without being surprised by the suddenly swayed vote.</blockquote><h1 id="74f725bb-edd9-4ac3-9807-fcb29106c566" class="">Available Proposal Types</h1><h2 id="9e08f3a0-41d2-4915-a5de-ac5a53a27424" class="">Governance Module (<a href="https://github.com/KiraCore/sekai/blob/6373f5748767ef2eb2adc9772686a4b8792214bc/x/gov/types/proposal.go#L15">ref.</a>)</h2><table id="3d5841c9-976d-4de2-905b-39bad9c659fe" class="simple-table"><tbody><tr id="e4301ab8-ae37-4f47-bf5f-492df6476603"><td id="KLCU"><strong>PROPOSAL TYPE NAME</strong></td><td id="~]WX"><strong>CREATION PERMISSION</strong></td><td id="lZ@]"><strong>VOTING PERMISSION</strong></td><td id="~O]]"><strong>DESCRIPTION</strong></td></tr><tr id="2ca99754-dce5-4b69-9ae0-7bfae8532963"><td id="KLCU">AssignPermission</td><td id="~]WX"><code>PermCreateSetPermissionsProposal (4)</code></td><td id="lZ@]"><code>PermVoteSetPermissionProposal (5)</code></td><td id="~O]]">Allows assignment of <a href="Roles%20&amp;%20Permissions%20f91847b7c3c84738bae73a71044ef2fc.html">permissions </a>to individual kira accounts</td></tr><tr id="0cbb19cc-1bac-4bad-94ac-f5db462f2090"><td id="KLCU">CreateRoleProposal</td><td id="~]WX"><code>PermCreateRoleProposal (22)</code></td><td id="lZ@]"><code>PermVoteCreateRoleProposal (23)</code></td><td id="~O]]">Allows for creation and modification of <a href="Roles%20&amp;%20Permissions%20f91847b7c3c84738bae73a71044ef2fc.html">network roles</a></td></tr><tr id="360f09ed-7c8f-4de7-8782-494bcf5e2a23"><td id="KLCU">SetNetworkProperty</td><td id="~]WX"><code>PermCreateSetNetworkPropertyProposal (12)</code></td><td id="lZ@]"><code>PermVoteSetNetworkPropertyProposal (13)</code></td><td id="~O]]">Allows modification of <a href="Network%20Properties%20de74fe4b731a47df86683f2e9eefa793.html">network properties</a></td></tr><tr id="b7935a50-9748-4966-91b7-3ccf0dc144f4"><td id="KLCU">UpsertDataRegistry</td><td id="~]WX"><code>PermCreateUpsertDataRegistryProposal (10)</code></td><td id="lZ@]"><code>PermVoteUpsertDataRegistryProposal (11)</code></td><td id="~O]]">Allows modification of the <a href="https://www.notion.so/ed4b63946f364416a27c4d0146ad9082">data registry</a> content</td></tr><tr id="bd3893bc-206a-4614-8dde-2e7ab1a55463"><td id="KLCU">SetPoorNetworkMessages</td><td id="~]WX"><code>PermCreateSetPoorNetworkMessagesProposal (16)</code></td><td id="lZ@]"><code>PermVoteSetPoorNetworkMessagesProposal (17)</code></td><td id="~O]]">Allows modification of network behaviour during poor network conditions</td></tr><tr id="50a4c8e6-c2ca-4e69-ab37-8cd46f27f216"><td id="KLCU">SetProposalDurationsProposalType</td><td id="~]WX"><code>PermCreateSetProposalDurationProposal (31)</code></td><td id="lZ@]"><code>PermVoteSetProposalDurationProposal (32)</code></td><td id="~O]]"> Allows to define duration time of individual proposals. If not defined default value by the <a href="Network%20Properties%20de74fe4b731a47df86683f2e9eefa793.html">Network Properties</a> is used</td></tr></tbody></table><h2 id="9104da75-6bdc-4636-841c-1fd9d9f31909" class="">Upgrade Module (<a href="https://github.com/KiraCore/sekai/blob/6373f5748767ef2eb2adc9772686a4b8792214bc/x/upgrade/types/proposal.go#L7">ref.</a>)</h2><table id="855d478b-e934-4c5a-aebe-17b9c97bcb77" class="simple-table"><tbody><tr id="e6bbf15f-66b9-4b68-b0c4-21a1e032b1ed"><td id="KLCU"><strong>PROPOSAL TYPE NAME</strong></td><td id="~]WX"><strong>CREATION PERMISSION</strong></td><td id="lZ@]"><strong>VOTING PERMISSION</strong></td><td id="~O]]"><strong>DESCRIPTION</strong></td></tr><tr id="3d3003dc-6166-4f06-b6ba-fdd1f4a83987"><td id="KLCU">SoftwareUpgrade</td><td id="~]WX"><code>PermCreateSoftwareUpgradeProposal (28)</code></td><td id="lZ@]"><code>PermVoteSoftwareUpgradeProposal (29)</code></td><td id="~O]]">Allows to propose a new upgrade plan</td></tr><tr id="1f6f48c2-254f-46b0-b9e7-b40a336de227"><td id="KLCU">CancelSoftwareUpgrade</td><td id="~]WX"><code>TBD</code></td><td id="lZ@]"><code>TBD</code></td><td id="~O]]">Allows to cancel already passed upgrade plan</td></tr></tbody></table><h2 id="bf3ac006-8159-4c54-8737-fe9ae3f79218" class="">Slashing Module (<a href="https://github.com/KiraCore/sekai/blob/6373f5748767ef2eb2adc9772686a4b8792214bc/x/slashing/types/proposal.go#L8">ref.</a>)</h2><table id="49a88cdd-d1f0-448e-bb8c-5dc6b60804e7" class="simple-table"><tbody><tr id="eb7315fa-43c3-4bae-80cd-a77d4b6954c0"><td id="KLCU"><strong>PROPOSAL TYPE NAME</strong></td><td id="~]WX"><strong>CREATION PERMISSION</strong></td><td id="lZ@]"><strong>VOTING PERMISSION</strong></td><td id="~O]]"><strong>DESCRIPTION</strong></td></tr><tr id="a29b3d5a-3aa0-47ae-813a-c14d1113255f"><td id="KLCU">ResetWholeValidatorRank</td><td id="~]WX"><code>PermCreateResetWholeValidatorRankProposal (26)</code></td><td id="lZ@]"><code>PermVoteResetWholeValidatorRankProposal (27)</code></td><td id="~O]]">Allows to clear ranks of all validators</td></tr></tbody></table><h2 id="609adcba-a64c-4945-85c2-48cd46f307d6" class="">Staking Module (<a href="https://github.com/KiraCore/sekai/blob/38b5119e4bc40a30948b52a0e32857cb1d21d24e/x/staking/types/proposal.go#L8">ref.</a>)</h2><table id="e73a6443-84f4-43ce-8def-06f58dccbd9a" class="simple-table"><tbody><tr id="5bb6910f-6b3d-4d19-bf8d-d6256d0aec29"><td id="KLCU"><strong>PROPOSAL TYPE NAME</strong></td><td id="~]WX"><strong>CREATION PERMISSION</strong></td><td id="lZ@]"><strong>VOTING PERMISSION</strong></td><td id="~O]]"><strong>DESCRIPTION</strong></td></tr><tr id="2b9c810c-a164-41ea-97b4-977a7cd27616"><td id="KLCU">UnjailValidator</td><td id="~]WX"><code>PermCreateUnjailValidatorProposal (20)</code></td><td id="lZ@]"><code>PermVoteUnjailValidatorProposal (21)</code></td><td id="~O]]">Allows to unjail validator that commited double-signing fault</td></tr></tbody></table><h2 id="69a12b6b-28a6-4da7-8a77-db7b33c35f1d" class="">Tokens Module (<a href="https://github.com/KiraCore/sekai/blob/master/x/tokens/types/proposal.go">ref.</a>)</h2><table id="4d633511-efd8-44f0-9bf6-f81e75046c6b" class="simple-table"><tbody><tr id="c3a9af74-e810-4aed-9215-dad5eca12b31"><td id="KLCU"><strong>PROPOSAL TYPE NAME</strong></td><td id="~]WX"><strong>CREATION PERMISSION</strong></td><td id="lZ@]"><strong>VOTING PERMISSION</strong></td><td id="~O]]"><strong>DESCRIPTION</strong></td></tr><tr id="a871d849-0989-4ca1-b16a-d94981dfdf69"><td id="KLCU">UpsertTokenAlias</td><td id="~]WX"><code>PermCreateUpsertTokenAliasProposal (14)</code></td><td id="lZ@]"><code>PermVoteUpsertTokenAliasProposal (15)</code></td><td id="~O]]">Allows to assign metadata to various tokens available on the network</td></tr><tr id="087ca31b-7f6f-4b5e-b8e1-a810acdcf248"><td id="KLCU">UpsertTokenRates</td><td id="~]WX"><code>PermCreateUpsertTokenRateProposal (18)</code></td><td id="lZ@]"><code>PermVoteUpsertTokenRateProposal (19)</code></td><td id="~O]]">Allows to assign exchange rates of foreign tokens used in fee payment calculations</td></tr><tr id="0e5b7f47-a310-46ce-925b-c4b02760137a"><td id="KLCU">TokensWhiteBlackChange</td><td id="~]WX"><code>PermCreateTokensWhiteBlackChangeProposal (24)</code></td><td id="lZ@]"><code>PermVoteTokensWhiteBlackChangeProposal (25)</code></td><td id="~O]]">Allows to curate blacklist/whitelist of tokens on the network</td></tr></tbody></table><blockquote id="931c3a7f-a179-4575-b7c5-86980f424d81" class=""><em>NOTE: Proposals can be raised using via CLI </em><em><code>sekaid tx customgov proposals</code></em><em> command. The </em><em><code>--help</code></em><em> flag can be used to discover further options. To raise a certain proposal a dedicated permission is required. For example to submit </em><code>SetProposalDurationsProposalType</code> message a <code>PermCreateSetProposalDurationProposal (31)</code> permission must be assigned to the account creating said proposal. For example to vote on the <code>SetProposalDurationsProposalType</code> a <code>PermVoteSetProposalDurationProposal (32)</code> is needed. </blockquote><h1 id="3bb31691-e397-43c1-85f5-0ced32f59440" class="">Commands Examples</h1><p id="c8e339fe-4809-4d90-99cb-16dcf71d72bd" class=""><strong>Proposals Duration Change</strong></p><pre id="9d917775-2dd8-4452-9fc5-5906671754ca" class="code"><code># CLI
+sekaid tx customgov proposal set-proposal-durations-proposal &quot;$PROPOSALS&quot; &quot;$DURATIONS&quot; \
+ --title=&quot;Update proposals duration &quot; --description=&quot;Set durations of &#x27;[$PROPOSALS]&#x27; to &#x27;[$DURATIONS]&#x27; seconds&quot; &amp;&amp; \
+ --from=$ACCOUNT --keyring-backend=test --home=$SEKAID_HOME --chain-id=testing --fees=1000ukex --yes
+# KM
+# e.g.: setProposalsDurations &lt;account&gt; &lt;comma-separated-proposals&gt; &lt;comma-separated-durations-in-seconds&gt;
+setProposalsDurations validator &quot;UpsertDataRegistry,SetNetworkProperty&quot; &quot;300,360&quot;</code></pre><p id="3c743cb2-77f8-4814-8579-d3544bdd3ac6" class=""><strong>Query Proposals</strong></p><pre id="c4036e90-fc20-4d04-8c04-cd9a4c54d659" class="code"><code># CLI
+sekaid query customgov proposals --limit=1000000000 --output=json --home=$SEKAID_HOME | jq
+# KM
+showProposals</code></pre><p id="01b6dd19-cfda-4cd0-b86c-d3122b4f5bc9" class=""><strong>Vote On Proposal</strong></p><pre id="052aeec5-414f-4c09-a79c-9ca86bb4caf7" class="code"><code># CLI
+sekaid tx customgov proposal vote $PROPOSAL_ID $VOTE_TYPE --from=$ACCOUNT --chain-id=$NETWORK_NAME \
+ --keyring-backend=test  --fees=100ukex --yes --log_format=json --broadcast-mode=async --output=json
+# KM
+voteYes
+voteNo</code></pre><p id="8eec55a6-a68d-4d00-a2e5-57d2d72311f6" class=""><strong>Query Proposals Durations</strong></p><pre id="7401e620-d6e8-4178-a99d-3a2df9eb525b" class="code"><code># CLI
+sekaid query customgov all-proposal-durations --output=json --home=$SEKAID_HOME | jq
+# KM
+showProposalsDurations</code></pre></div></article></body></html>
